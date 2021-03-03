@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LittlePicasso</string>
+
+    <string name="facebook_app_id">4047491401948509</string>
+    <string name="fb_login_protocol_scheme">fb4047491401948509</string>
+
+</resources>
