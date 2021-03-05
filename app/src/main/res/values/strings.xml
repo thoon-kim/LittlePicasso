@@ -3,5 +3,6 @@
 
     <string name="facebook_app_id">4047491401948509</string>
     <string name="fb_login_protocol_scheme">fb4047491401948509</string>
+    <string name="kakao_app_key">bf41a621d24574801e14ee22fcd468dc</string>
 
 </resources>

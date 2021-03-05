@@ -34,6 +34,9 @@ android {
     dataBinding {
         enabled = true
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -53,5 +56,8 @@ dependencies {
 
     // SNS login
     implementation "com.facebook.android:facebook-login:$rootProject.facebookVersion"
+
+    // 카카오 로그인
+    implementation "com.kakao.sdk:v2-user:2.4.0"
 
 }
