@@ -1,20 +1,21 @@
-package com.google.firebase.quickstart.auth.googlelogin_3
+package com.fund.littlepicasso.ui.login
 
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.fund.littlepicasso.databinding.ActivityGoogleLoginBinding
+// import com.fund.littlepicasso.ui.login.databinding.ActivityGoogleLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.google.firebase.quickstart.auth.googlelogin_3.databinding.ActivityMainBinding
+// import com.google.firebase.quickstart.auth.login.databinding.ActivityGoogleLoginBinding
 
 
-class MainActivity : AppCompatActivity() {
+class GoogleLoginActivity : AppCompatActivity() {
     companion object {
         const val RC_SIGN_IN = 100
         const val TAG = "firebaseTag"
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding = ActivityGoogleLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.signInButton.setOnClickListener { signIn() }
@@ -41,15 +42,17 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun signIn() {
+    private fun signIn() { // requestEmail 옵션을 사용하여 GoogleSignInOptions 객체를 만듭니다
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .build()
+                .requestEmail()
+                .build()
 
         // Build a GoogleSignInClient with the options specified by gso.
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         val account = GoogleSignIn.getLastSignedInAccount(this)
         // 정보가 있으면 signinaccout 의 객체  없으면 null값
+
+///////////////////////////////////////////////////////////////////////////
 
         // 정보 표시 !!
         if (account == null){
@@ -64,6 +67,12 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG,"account : "+ account.email)
         }
 
+///////////////////////////////////////////////////////////////////////////
+// 구글 로그인으로 어떤거까지 받아올수있는지
+
+
+        // RC_Sign_IN :어디에서 끝낫다라고 말해주는
+    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
